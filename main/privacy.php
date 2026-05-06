@@ -45,7 +45,7 @@ include '../config/config.php';
                     <span class="font-sans font-bold text-xl tracking-tight text-white"><?php echo $sitename; ?></span>
                 </a>
                 <div class="flex items-center gap-4">
-                    <a href="index.php" class="text-sm font-medium hover:text-brand-primary transition-colors text-gray-300">Back to Home</a>
+                    <a href="../index.php" class="text-sm font-medium hover:text-brand-primary transition-colors text-gray-300">Back to Home</a>
                 </div>
             </div>
         </div>
