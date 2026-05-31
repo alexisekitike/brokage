@@ -15,7 +15,7 @@
                 <i class="fa-solid fa-arrow-right-arrow-left text-xl"></i>
             </a>
 
-            <a href="invest.php"
+            <a href="investments.php"
                 class="flex flex-col items-center gap-1 p-2 text-slate-500 hover:text-indigo-600 dark:hover:text-white">
                 <i class="fa-solid fa-chart-pie text-lg"></i>
                 <span class="text-[10px] font-medium">Invest</span>
