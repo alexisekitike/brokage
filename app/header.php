@@ -2,7 +2,7 @@
 if (session_status() === PHP_SESSION_NONE) { session_start(); }
 
 // --- 1. DATABASE CONNECTION ---
-$configPath = 'C:/xampp/htdocs/fichain/config/db.php';
+$configPath = '../config/db.php';
 if (file_exists($configPath)) {
     require_once $configPath;
 } else {

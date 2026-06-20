@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/fichain/config/db.php'; 
+require_once $_SERVER['DOCUMENT_ROOT'] . '../config/db.php'; 
 
 if (!isset($_SESSION['user_id'])) { exit("Unauthorized"); }
 
