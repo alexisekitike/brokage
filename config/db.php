@@ -5,8 +5,6 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-// Use safeLoad(): It will load the .env file if it exists, 
-// and do nothing if it doesn't (perfect for production).
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->safeLoad();
 
@@ -14,7 +12,6 @@ $dotenv->safeLoad();
 // DATABASE CONFIG FROM ENV
 // -----------------------------------------------------------------------------
 
-// $_ENV variables are populated by .env (locally) or by Render's dashboard (production)
 $DB_SERVER   = $_ENV['DB_SERVER']   ?? '127.0.0.1';
 $DB_USERNAME = $_ENV['DB_USERNAME'] ?? 'root';
 $DB_PASSWORD = $_ENV['DB_PASSWORD'] ?? '';
@@ -31,8 +28,30 @@ try {
     $link = mysqli_connect($DB_SERVER, $DB_USERNAME, $DB_PASSWORD, $DB_NAME, $DB_PORT);
     mysqli_set_charset($link, "utf8mb4");
 } catch (mysqli_sql_exception $e) {
-    // In production, you might want to log this instead of outputting the error
     die("Database Connection Failed: " . $e->getMessage());
+}
+
+// -----------------------------------------------------------------------------
+// FETCH GLOBAL SETTINGS
+// -----------------------------------------------------------------------------
+
+// Fetch the first row from the settings table
+$settings_query = "SELECT * FROM settings LIMIT 1";
+$settings_result = mysqli_query($link, $settings_query);
+
+if ($settings_result && mysqli_num_rows($settings_result) > 0) {
+    $site = mysqli_fetch_assoc($settings_result);
+    
+    // Assign to variables for easy access
+    $sitename                  = $site['sitename'];
+    $siteurl                   = $site['siteurl'];
+    $site_email                = $site['site_email'];
+    $site_phone                = $site['site_phone'];
+    $enable_email_verification = $site['enable_email_verification'];
+    // You can access others similarly, or just use the $site array
+} else {
+    // Fallback if no settings exist in DB
+    $sitename = "Fichain Capital";
 }
 
 // -----------------------------------------------------------------------------

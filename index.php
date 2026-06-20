@@ -444,7 +444,7 @@ PREMIUM NAVIGATION
                     </div>
 
                     <!-- Portfolio -->
-                    <div class="p-6 border-b border-white/10">
+                    <!-- <div class="p-6 border-b border-white/10">
 
                         <p class="text-gray-400 text-sm mb-2">
                             Portfolio Balance
@@ -458,7 +458,7 @@ PREMIUM NAVIGATION
                             +12.43% This Month
                         </div>
 
-                    </div>
+                    </div> -->
 
                     <!-- Chart -->
                     <div class="p-6">
